@@ -1,37 +1,55 @@
-# Spontaneous Facial Micro Expression Recognition using 3D Spatio-Temporal Convolutional Neural Networks
+# AdverFacial
 
 ## Abstract
 
-Facial expression recognition in videos is an active area of research in computer vision. However, fake facial expressions are difficult to be recognized even by humans. On the other hand, facial micro-expressions generally represent the actual emotion of a person, as it is a spontaneous reaction expressed through human face. Despite of a few attempts made for recognizing micro-expressions, still the problem is far from being a solved problem, which is depicted by the poor rate of accuracy shown by the state-of-the-art methods. A few CNN based approaches are found in the literature to recognize micro-facial expressions from still images. Whereas, a spontaneous micro-expression video contains multiple frames that have to be processed together to encode both spatial and temporal information. This paper proposes two 3D-CNN methods: MicroExpSTCNN and MicroExpFuseNet, for spontaneous facial micro-expression recognition by exploiting the spatiotemporal information in CNN framework. The MicroExpSTCNN considers the full spatial information, whereas the MicroExpFuseNet is based on the 3D-CNN feature fusion of the eyes and mouth regions. The experiments are performed over CAS(ME)^2 and SMIC micro-expression databases. The proposed MicroExpSTCNN model outperforms the state-of-the-art methods.
+The objective of AdverFacial is to protect face's privacy on video conferencing, especially in this era of pandemic, where video calling is the platform used to replace all face-to-face activities. This is achieved by conducting experiment on fooling state-of-the-art classifiers on micro-expression datasets. If by applying perturbation on the datasets successfully decrease the accuracy of the classifier, the experiment is a succeed.
+
+## Resources and References
+The datasets used are as follows:
+- CASME (doi:10.1109/FG.2013.6553799)
+- CASME2 (doi:10.1371/journal.pone.0086041)
+- CAS(ME)^2 (doi:10.1109/TAFFC.2017.2654440)
+- SMIC (doi:10.1109/FG.2013.6553717)
+
+The pretrained classifiers are cited from 2 repositories, which are stated below:
+- LEARNet (https://visionintelligence.github.io/request_FER.html)
+- STCNN (https://github.com/bogireddytejareddy/micro-expression-recognition)
+
+Universal Adversarial Perturbation:
+- Deep Fool and Project Perturbation (https://github.com/NetoPedro/Universal-Adversarial-Perturbations-Pytorch)
+
+# Content
+Divided by datasets, each dataset folder contains the application of 2 models, STCNN and LEARNet being fed with the corresponding dataset. This is to gain the baseline accuracy of each dataset with each model. Universal Adversarial Perturbation is also applied to each of the models for each datasets, in order to gain the fooling rate of it.
 
 ## Prerequisites
-- [Keras 2.0.0](https://github.com/fchollet/keras) Strictly
+- [TensorFlow 2.5.0]
+- [Keras 2.0.0]
 
-## Results
-| Method | Proposed Year | Method Type | CAS(ME)^2 | SMIC |
-| ------ | ------------- | ----------- | --------- | ---- |
-| LBP-TOP |     2013          |     HCM        |     -      |   42.72%   |
-|  STCLQP  |        2016       |    HCM         |     -      |  64.02%    |
-| CNN with Augumentation       |     2017          |   DLM          |    78.02%       |  -    |
-|  3D-FCNN  |   2018            |    DLM         |    -       |   55.49%   |
-|   MicroExpSTCNN     |   Proposed            |   DLM          |      87.80%     |   68.75%   |
-|  Intermediate MicroExpFuseNet     |  Proposed             |   DLM          |    83.25%       |   54.77%   |
-|  Late MicroExpFuseNet   |    Proposed           |    DLM         |    79.31%       |  64.82%    |
-
-## Validation Data and Weights
- ### [CASME-SQUARE](https://drive.google.com/drive/folders/1pGoEgRVekaeRvj0pt35HF_yqlgwnkCiQ?usp=sharing)
- ### [SMIC](https://drive.google.com/drive/folders/1aOPBE2Ltj7-cY57fADucX8n3pMIcMg6K?usp=sharing)
 
 ## Citation
 
-If you use this code in your research, we would appreciate a citation:
-
-	@article{reddy2019microexpression,
-            title={Spontaneous Facial Micro-Expression Recognition using 3D Spatiotemporal Convolutional Neural Networks},
-            author={Sai Prasanna Teja, Reddy and Surya Teja, Karri and Dubey, Shiv Ram and Mukherjee, Snehasis},
-            journal={International Joint Conference on Neural Networks},
-            year={2019}
-            }
-## License
-
-Copyright (c) 2019 Bogireddy Teja Reddy. Released under the MIT License. See [LICENSE](LICENSE) for details.
+@article{reddy2019microexpression,
+	title={Spontaneous Facial Micro-Expression Recognition using 3D Spatiotemporal Convolutional Neural Networks},
+	author={Sai Prasanna Teja, Reddy and Surya Teja, Karri and Dubey, Shiv Ram and Mukherjee, Snehasis},
+	journal={International Joint Conference on Neural Networks},
+	year={2019}
+	}
+    
+@InProceedings{Moosavi_Dezfooli_2017_CVPR,
+	author = {Moosavi-Dezfooli, Seyed-Mohsen and Fawzi, Alhussein and Fawzi, Omar and Frossard, Pascal},
+	title = {Universal Adversarial Perturbations},
+	booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+	month = {July},
+	year = {2017}
+	}
+	
+@Article{verma_vipparthi_singh_murala_2020, 
+	title={LEARNet: Dynamic Imaging Network for Micro Expression Recognition}, 
+	volume={29}, DOI={10.1109/tip.2019.2912358}, 
+	journal={IEEE Transactions on Image Processing}, 
+	author={Verma, Monu and Vipparthi, Santosh Kumar and Singh, Girdhari and Murala, Subrahmanyam}, 
+	year={2020}, 
+	pages={1618–1627}
+	}
+    
+   
